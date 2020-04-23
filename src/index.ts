@@ -4,7 +4,7 @@ import {ApplicationConfig} from '@loopback/core';
 export {GrupoDitechApplication};
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new GrupoDitechApplication(Object.assign(options, {rest: {port: 8080}}));
+  const app = new GrupoDitechApplication(Object.assign(options, {rest: {port: process.env.PORT}}));
   await app.boot();
   await app.start();
 

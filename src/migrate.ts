@@ -4,7 +4,7 @@ export async function migrate(args: string[]) {
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
   console.log('Migrating schemas (%s existing schema)', existingSchema);
 
-  const app = new GrupoDitechApplication({rest: {port: 8080}});
+  const app = new GrupoDitechApplication({rest: {port: process.env.PORT}});
   await app.boot();
   await app.migrateSchema({existingSchema});
 
